@@ -25,3 +25,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    command.load_sprint:
+        class: App\Command\LoadSprintDataCommand
+        tags:
+            - { name: console.command, command: sprint:load }
+
+    repository.sprint:
+        class: App\Repository\SprintRepository

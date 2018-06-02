@@ -17,6 +17,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class LoadSprintDataCommand extends ContainerAwareCommand
 {
+    /** @var SprintRepository */
+    private $sprintRepository;
+
+    public function __construct(SprintRepository $sprintRepository)
+    {
+        $this->sprintRepository = $sprintRepository;
+        parent::__construct();
+    }
+
     public function configure()
     {
         $this
@@ -34,11 +43,9 @@ class LoadSprintDataCommand extends ContainerAwareCommand
         $teamKey = $input->getArgument('team');
         $sprintName = $input->getArgument('sprint');
 
-        $sprintRepository = new SprintRepository();
-
         $sprint = null;
 
-        if (!$sprint = $sprintRepository->findByName($teamKey, $sprintName)) {
+        if (!$sprint = $this->sprintRepository->findByName($teamKey, $sprintName)) {
             throw new \InvalidArgumentException('Sprint not found');
         }
 
@@ -63,7 +70,6 @@ class LoadSprintDataCommand extends ContainerAwareCommand
         $output->writeln(implode("\t", $sprint->getBoard()->getColumns()));
 
         $output->writeln('==========================================================================================');
-
 
         // Sprint
 

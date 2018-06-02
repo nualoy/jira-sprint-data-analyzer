@@ -38,6 +38,6 @@ $kernel = new Kernel($env, $debug);
 $application = new Application($kernel);
 
 # commands
-$application->add(new \App\Command\LoadSprintDataCommand());
+//$application->add(new \App\Command\LoadSprintDataCommand());
 
 $application->run($input);

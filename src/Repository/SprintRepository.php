@@ -6,32 +6,23 @@ use App\Entity\Board;
 use App\Entity\Issue;
 use App\Entity\Sprint;
 use App\Entity\Transition;
+use App\Service\JiraCloudClient;
 use JiraRestApi\Issue\IssueService;
 
 class SprintRepository
 {
-    /** @var string */
-    private $baseUrl = 'https://instapro.atlassian.net/rest/agile/latest';
+    /** @var JiraCloudClient */
+    private $cloudClient;
 
-    // @todo: extract to service class
-    public function get(string $uri): string
+    public function __construct(JiraCloudClient $cloudClient)
     {
-        $ch = curl_init($this->baseUrl . $uri);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Accept: application/json',
-            'Content-Type: application/json',
-            'Authorization: Basic bnVyaWEuYWxveUB3ZXJrc3BvdC5ubDpOMHJ0aGVybkxpdGU='
-        ));
-        $res = curl_exec($ch);
-        curl_close($ch);
-        return (string)$res;
+        $this->cloudClient = $cloudClient;
     }
 
     public function findByName(string $teamKey, string $sprintName): ?Sprint
     {
         if ($board = $this->findBoard($teamKey)) {
-            $data = json_decode($this->get("/board/{$board->getId()}/sprint"));
+            $data = json_decode($this->cloudClient->get("/board/{$board->getId()}/sprint"));
 
             foreach ($data->values as $sprintData) {
 
@@ -48,11 +39,11 @@ class SprintRepository
 
     private function findBoard(string $teamKey): ?Board
     {
-        $data = json_decode($this->get('/board'));
+        $data = json_decode($this->cloudClient->get('/board'));
 
         foreach ($data->values as $boardData) {
             if (strpos($boardData->location->name, "({$teamKey})") !== false) {
-                $data = json_decode($this->get("/board/{$boardData->id}/configuration"));
+                $data = json_decode($this->cloudClient->get("/board/{$boardData->id}/configuration"));
                 return new Board($data);
             }
         }
