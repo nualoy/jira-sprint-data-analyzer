@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\JiraApiClient;
+use App\Repository\SprintRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -11,9 +11,9 @@ class ApiController
     /**
      * @Route("/sprints")
      */
-    public function getSprints(JiraApiClient $apiClient)
+    public function getSprints(SprintRepository $sprintRepository)
     {
-        $response = new Response($apiClient->get('/board/2/sprint'));
+        $response = new Response($sprintRepository->get('/board/2/sprint'));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
@@ -21,9 +21,9 @@ class ApiController
     /**
      * @Route("/issue/{keyOrId}")
      */
-    public function getIssue(JiraApiClient $apiClient, string $keyOrId)
+    public function getIssue(SprintRepository $sprintRepository, string $keyOrId)
     {
-        $response = new Response($apiClient->get("/issue/{$keyOrId}?expand=changelog"));
+        $response = new Response($sprintRepository->get("/issue/{$keyOrId}?expand=changelog"));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
@@ -31,9 +31,9 @@ class ApiController
     /**
      * @Route("/board/issues")
      */
-    public function getBoardIssues(JiraApiClient $apiClient)
+    public function getBoardIssues(SprintRepository $sprintRepository)
     {
-        $response = new Response($apiClient->get('/board/2/issue'));
+        $response = new Response($sprintRepository->get('/board/2/issue'));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
@@ -41,16 +41,16 @@ class ApiController
     /**
      * @Route("/search")
      */
-    public function searchIssues(JiraApiClient $apiClient)
+    public function searchIssues(SprintRepository $sprintRepository)
     {
-        $response = new Response($apiClient->get('/search'));
+        $response = new Response($sprintRepository->get('/search'));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
 
-    public function getIssuesForSprint(JiraApiClient $apiClient)
+    public function getIssuesForSprint(SprintRepository $sprintRepository)
     {
-        $response = new Response($apiClient->get('/board/2/sprint/'));
+        $response = new Response($sprintRepository->get('/board/2/sprint/'));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }

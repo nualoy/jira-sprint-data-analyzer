@@ -1,0 +1,473 @@
+{
+  "duration": 9,
+  "id": 78,
+  "name": "Sprint 10",
+  "start_date": "2018-05-16T10:18:34+0000",
+  "end_date": "2018-05-30T10:18:00+0000",
+  "goal": "Improve 'Invite to quote' and make matching engine testable",
+  "board": {
+    "id": 6,
+    "name": "Consumer Matching Board",
+    "columns": [
+      "Open",
+      "In Progress",
+      "To Verify",
+      "On Review",
+      "Done"
+    ],
+    "estimation_field": "customfield_10025",
+    "team_key": "CM"
+  },
+  "issues": [
+    {
+      "key": "CM-363",
+      "type": "Sub-task",
+      "summary": "Add ids",
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-29T06:52:40+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-362",
+      "type": "Sub-task",
+      "summary": "Accept",
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-29T06:52:43+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-358",
+      "type": "Story",
+      "summary": "Change service ids for IT for the 'Invite to quote' experiment",
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "On Review",
+          "date": "2018-05-24T16:59:02+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-25T09:31:24+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-357",
+      "type": "Sub-task",
+      "summary": "Accept",
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-24T14:07:16+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-355",
+      "type": "Sub-task",
+      "summary": "Show distance in kilometers from the SR location",
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-16T16:18:00+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "Done",
+          "date": "2018-05-17T16:23:31+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-354",
+      "type": "Story",
+      "summary": "Show distance in km of recommended SPs",
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-17T16:23:36+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-353",
+      "type": "Sub-task",
+      "summary": "Apply new Darwin design",
+      "estimate": 5,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-17T09:28:06+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "To Verify",
+          "date": "2018-05-23T16:57:57+0200"
+        },
+        {
+          "from": "To Verify",
+          "to": "Done",
+          "date": "2018-05-25T09:15:11+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-352",
+      "type": "Sub-task",
+      "summary": "Experiment: use data from session",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-18T17:36:28+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "Done",
+          "date": "2018-05-24T08:59:31+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-351",
+      "type": "Sub-task",
+      "summary": "Experiment: make current queries  compatible with Postgres SQL",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-18T08:57:33+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "Done",
+          "date": "2018-05-18T17:36:24+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-350",
+      "type": "Sub-task",
+      "summary": "Remove cronjob that feeds database",
+      "estimate": 1,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-17T11:35:48+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "To Verify",
+          "date": "2018-05-17T13:29:44+0200"
+        },
+        {
+          "from": "To Verify",
+          "to": "On Review",
+          "date": "2018-05-17T13:29:53+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-17T14:40:04+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-349",
+      "type": "Sub-task",
+      "summary": "Remove API end point",
+      "estimate": 1,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-16T14:12:49+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "To Verify",
+          "date": "2018-05-16T15:54:50+0200"
+        },
+        {
+          "from": "To Verify",
+          "to": "On Review",
+          "date": "2018-05-17T13:29:51+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-17T14:40:02+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-348",
+      "type": "Sub-task",
+      "summary": "Clean up Mongo DB: remove table",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-17T13:29:37+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "To Verify",
+          "date": "2018-05-17T14:27:13+0200"
+        },
+        {
+          "from": "To Verify",
+          "to": "On Review",
+          "date": "2018-05-17T14:40:11+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-17T17:24:36+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-340",
+      "type": "Story",
+      "summary": "Remove unused dependancies",
+      "estimate": 4,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-17T17:24:50+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-338",
+      "type": "Sub-task",
+      "summary": "Resize cluster to support matching making on acceptance environments",
+      "estimate": 3,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-23T09:29:57+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "On Review",
+          "date": "2018-05-24T16:57:21+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-28T10:56:36+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-337",
+      "type": "Sub-task",
+      "summary": "Configure application to use the match making engine on acceptance (check description)",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-23T09:29:48+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "On Review",
+          "date": "2018-05-24T16:57:16+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-25T09:31:10+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-336",
+      "type": "Sub-task",
+      "summary": "Ensure match making manifest is configurable for different environments ",
+      "estimate": 8,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-23T09:29:53+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "On Review",
+          "date": "2018-05-24T16:57:19+0200"
+        },
+        {
+          "from": "On Review",
+          "to": "Done",
+          "date": "2018-05-28T10:56:34+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-331",
+      "type": "Story",
+      "summary": "Make match making engine available for all acceptance environments",
+      "estimate": 13,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-28T10:56:39+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-330",
+      "type": "Story",
+      "summary": "Experiment with session data",
+      "estimate": 4,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-24T14:21:55+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-326",
+      "type": "Story",
+      "summary": "Remove reminder of inviting SPs (after 30 minutes)",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-18T16:29:09+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-304",
+      "type": "Sub-task",
+      "summary": "Delete email you didn't invite anyone to the SR (30 minutes after posting SR)",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-17T16:36:31+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "Done",
+          "date": "2018-05-18T16:29:06+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-303",
+      "type": "Sub-task",
+      "summary": "Change copy in e-mail about phone number on profile page",
+      "estimate": 1,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-22T14:27:59+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "Done",
+          "date": "2018-05-23T06:38:42+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-302",
+      "type": "Sub-task",
+      "summary": "Add phone number to template",
+      "estimate": 1,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "In Progress",
+          "date": "2018-05-22T09:31:49+0200"
+        },
+        {
+          "from": "In Progress",
+          "to": "Done",
+          "date": "2018-05-23T06:38:39+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-279",
+      "type": "Story",
+      "summary": "View the professionals' details",
+      "estimate": 5,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-25T09:15:16+0200"
+        }
+      ]
+    },
+    {
+      "key": "CM-247",
+      "type": "Story",
+      "summary": "Invite on directory: provide phone number of SP in backstop email",
+      "estimate": 2,
+      "status": "Done",
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Done",
+          "date": "2018-05-23T06:38:44+0200"
+        }
+      ]
+    }
+  ]
+}
