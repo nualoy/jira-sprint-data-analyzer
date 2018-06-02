@@ -13,6 +13,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ApiController
 {
     /**
+     * @Route("/boards")
+     * @Method({"GET"})
+     */
+    public function listBoards(BoardRepository $boardRepository)
+    {
+        $boards = $boardRepository->findAll();
+        $serializer = SerializerBuilder::create()->build();
+        $response = new Response($serializer->serialize($boards, 'json'));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+    /**
      * @Route("/board/{id}")
      * @Method({"GET"})
      */

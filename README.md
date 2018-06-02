@@ -27,9 +27,11 @@ https://docs.atlassian.com/software/jira/docs/api/REST/latest
 
 ######Methods:
 
-GET `/board/{teamKey}` Get a team board with a list of all its sprints
+GET `/boards` List all available boards
 
-GET `/sprint/{id}` Get all the sprint information by id
+GET `/board/{id}` Get a board with a list of all the sprints
+
+GET `/sprint/{id}` Get a sprint by id
 
 #### Command Line
 

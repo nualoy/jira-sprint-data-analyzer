@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Board;
+use App\Entity\LeanBoard;
 use App\Entity\Sprint;
 use App\Service\JiraCloudClient;
 
@@ -44,5 +45,15 @@ class BoardRepository
             }
         }
         return $board;
+    }
+
+    public function findAll(): array
+    {
+        $data = json_decode($this->cloudClient->get('/board'));
+        $boards = [];
+        foreach ($data->values as $boardData) {
+            $boards[] = new LeanBoard($boardData);
+        }
+        return $boards;
     }
 }
