@@ -16,7 +16,7 @@ class Issue
     /** @var int */
     private $estimate;
 
-    /** @var string  */
+    /** @var string */
     private $status;
 
     /** @var array<Transition> */
@@ -61,7 +61,7 @@ class Issue
         return $this->summary;
     }
 
-    public function getEstimate(): int
+    public function getEstimate(): ?int
     {
         return $this->estimate;
     }

@@ -2,56 +2,43 @@
 
 namespace App\Controller;
 
+use App\Repository\BoardRepository;
 use App\Repository\SprintRepository;
-use Symfony\Component\HttpFoundation\Response;
+use JMS\Serializer\SerializerBuilder;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ApiController
 {
     /**
-     * @Route("/sprints")
+     * @Route("/board/{id}")
+     * @Method({"GET"})
      */
-    public function getSprints(SprintRepository $sprintRepository)
+    public function getBoard(BoardRepository $boardRepository, int $id)
     {
-        $response = new Response($sprintRepository->get('/board/2/sprint'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+        if ($board = $boardRepository->findWithSprintsById($id)) {
+            $serializer = SerializerBuilder::create()->build();
+            $response = new Response($serializer->serialize($board, 'json'));
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+        }
+        throw new NotFoundHttpException('Team board not found');
     }
 
     /**
-     * @Route("/issue/{keyOrId}")
+     * @Route("/sprint/{id}")
+     * @Method({"GET"})
      */
-    public function getIssue(SprintRepository $sprintRepository, string $keyOrId)
+    public function getSprint(SprintRepository $sprintRepository, int $id)
     {
-        $response = new Response($sprintRepository->get("/issue/{$keyOrId}?expand=changelog"));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-    }
-
-    /**
-     * @Route("/board/issues")
-     */
-    public function getBoardIssues(SprintRepository $sprintRepository)
-    {
-        $response = new Response($sprintRepository->get('/board/2/issue'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-    }
-
-    /**
-     * @Route("/search")
-     */
-    public function searchIssues(SprintRepository $sprintRepository)
-    {
-        $response = new Response($sprintRepository->get('/search'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-    }
-
-    public function getIssuesForSprint(SprintRepository $sprintRepository)
-    {
-        $response = new Response($sprintRepository->get('/board/2/sprint/'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+        if ($sprint = $sprintRepository->findById($id)) {
+            $serializer = SerializerBuilder::create()->build();
+            $response = new Response($serializer->serialize($sprint, 'json'));
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+        }
+        throw new NotFoundHttpException('Sprint not found');
     }
 }

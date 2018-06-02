@@ -20,6 +20,9 @@ class Board
     /** @var string */
     private $teamKey;
 
+    /** @var array<Sprint> */
+    private $sprints = null;
+
     /**
      * @param \stdClass $data
      * Assumes input as returned by:
@@ -59,5 +62,15 @@ class Board
     public function getTeamKey(): string
     {
         return $this->teamKey;
+    }
+
+    public function addSprint(Sprint $sprint): void
+    {
+        $this->sprints[] = $sprint;
+    }
+
+    public function getSprints(): array
+    {
+        return $this->sprints;
     }
 }

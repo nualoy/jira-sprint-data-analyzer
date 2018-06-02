@@ -20,11 +20,20 @@ https://docs.atlassian.com/software/jira/docs/api/REST/latest
 
 ### Usage
 
+#### REST API
 
-#### Getting data to draw a Burndown or Burnup Chart
+* Start the local web server: `bin/console server:start`
+* By default the server listens on `http://localhost:8001`. Type this address in the browser.
 
-#### Getting the data to represent a Sprint Board
+######Methods:
 
+GET `/board/{teamKey}` Get a team board with a list of all its sprints
+
+GET `/sprint/{id}` Get all the sprint information by id
+
+#### Command Line
+
+Run `bin/console sprint:load {teamKey} {sprintName}` to get all the information about a sprint
 
 ## Known issues
 

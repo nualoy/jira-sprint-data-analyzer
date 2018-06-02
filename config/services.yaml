@@ -32,3 +32,8 @@ services:
 
     repository.sprint:
         class: App\Repository\SprintRepository
+        arguments: ['@App\Service\JiraCloudClient', '@repository.board']
+
+    repository.board:
+        class: App\Repository\BoardRepository
+        arguments: ['@App\Service\JiraCloudClient']
