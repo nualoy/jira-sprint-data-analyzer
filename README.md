@@ -1,8 +1,8 @@
-# Jira Sprint Data Analyzer
+# Jira Sprint Data ~~Analyzer~~ Provider
 
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/symfony/symfony.svg)
 
-This application uses the two JIRA APIs to retrieve and analyze relevant sprint data.
+This application uses the two JIRA APIs to retrieve and analyze relevant sprint data:
 
 The **Jira Software Cloud REST API** gives access to the information related to Agile boards and sprints.
 https://developer.atlassian.com/cloud/jira/software/rest/
