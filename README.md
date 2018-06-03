@@ -36,7 +36,3 @@ GET `/sprint/{id}` Get a sprint by id
 #### Command Line
 
 Run `bin/console sprint:load {teamKey} {sprintName}` to get all the information about a sprint
-
-## Known issues
-
-- The duration of a sprint is automatically calculated from the start and end dates after subtracting the weekend days. In Jira you can add extra working days at the board configuration. These are not made available via the APIs, hence the duration of the sprint may not always match the one in Jira.
