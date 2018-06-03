@@ -4,6 +4,8 @@ namespace App\Entity;
 
 class Issue
 {
+    //@todo: add parent issue key
+
     /** @var string */
     private $key;
 

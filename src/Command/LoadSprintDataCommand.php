@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 namespace App\Command;
 
 use App\Entity\Issue;
@@ -29,9 +26,7 @@ class LoadSprintDataCommand extends ContainerAwareCommand
     public function configure()
     {
         $this
-            // the name of the command (the part after "bin/console")
             ->setName('sprint:load')
-            // the short description shown while running "php bin/console list"
             ->setDescription('Loads the data for a given sprint and team')
             ->addArgument('team', InputArgument::REQUIRED, 'The team name')
             ->addArgument('sprint', InputArgument::REQUIRED, 'The sprint name')
@@ -74,8 +69,7 @@ class LoadSprintDataCommand extends ContainerAwareCommand
         // Sprint
 
         $output->writeln($sprint->getName());
-        $output->writeln($sprint->getStartDate()->format('Y-m-d') . ' - ' . $sprint->getEndDate()->format('Y-m-d') .
-            " ({$sprint->getDuration()} days)");
+        $output->writeln($sprint->getStartDate()->format('Y-m-d') . ' - ' . $sprint->getEndDate()->format('Y-m-d'));
         $output->writeln('Goal: ' . $sprint->getGoal());
 
         $output->writeln('==========================================================================================');
@@ -90,7 +84,7 @@ class LoadSprintDataCommand extends ContainerAwareCommand
             /** @var Transition $transition */
             foreach ($issue->getTransitions() as $transition) {
                 $output->writeln("\t" . $transition->getDate()->format('Y-m-d') .
-                    "\tFrom {$transition->getFrom()} to {$transition->getTo()}");
+                    "\t{$transition->getType()}\tFrom {$transition->getFrom()} to {$transition->getTo()}");
 
             }
         }

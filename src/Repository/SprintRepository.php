@@ -70,14 +70,16 @@ class SprintRepository
 
             foreach ($jiraIssue->changelog->histories as $change) {
                 foreach ($change->items as $item) {
-                    if ($item->field === 'status') {
-                        $transition = new Transition($change->created, $item->fromString, $item->toString);
+
+                    if (\in_array($item->field, ['status', 'resolution', 'Sprint', 'Story Points'])) {
+                        $transition = new Transition($change->created, $item);
                         $issue->addTransition($transition);
                     }
                 }
             }
             $sprint->addIssue($issue);
         }
+
         return $sprint;
     }
 }

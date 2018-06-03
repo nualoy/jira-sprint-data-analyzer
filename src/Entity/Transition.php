@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 namespace App\Entity;
 
 class Transition
@@ -12,20 +9,24 @@ class Transition
     /** @var string */
     private $to;
 
+    /** @var string */
+    private $type;
+
     /** @var \DateTime */
     private $date;
 
-    public function __construct(string $dateString, string $fromString, string $toString)
+    public function __construct(string $dateString, \stdClass $item)
     {
-        $this->from = $fromString;
-        $this->to = $toString;
+        $this->from = $item->fromString;
+        $this->to = $item->toString;
         $this->date = new \DateTime($dateString);
+        $this->type = mb_strtolower($item->field);
     }
 
     /**
      * @return string
      */
-    public function getFrom(): string
+    public function getFrom(): ?string
     {
         return $this->from;
     }
@@ -33,7 +34,7 @@ class Transition
     /**
      * @return string
      */
-    public function getTo(): string
+    public function getTo(): ?string
     {
         return $this->to;
     }
@@ -44,5 +45,10 @@ class Transition
     public function getDate(): \DateTime
     {
         return $this->date;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
     }
 }
