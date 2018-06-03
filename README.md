@@ -25,7 +25,7 @@ https://docs.atlassian.com/software/jira/docs/api/REST/latest
 * Start the local web server: `bin/console server:start`
 * By default the server listens on `http://localhost:8001`. Type this address in the browser.
 
-######Methods:
+###### Methods:
 
 GET `/boards` List all available boards
 
